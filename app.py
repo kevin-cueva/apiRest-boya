@@ -1,11 +1,14 @@
 from flask import Flask
 from flask import request, jsonify, Blueprint
 from datetime import datetime
+from flask_cors import CORS, cross_origin
 
 from database import datos, setup
 
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 setup.create_table() #crea la tabla
 
