@@ -15,10 +15,10 @@ setup.create_table() #crea la tabla
 @app.route('/data', methods=['POST'])
 def add_data():
     temperatura = request.json['temperatura']
-    #ph = request.json['ph']
+    ph = request.json['ph']
     created_date = datetime.now().strftime("%x") #5/22/2021
 
-    data = (temperatura, created_date) #para guardar
+    data = (temperatura, ph, created_date) #para guardar
     data_id = datos.insert_data(data) #devuelve el id
 
     if data_id:

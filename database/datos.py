@@ -9,8 +9,8 @@ def insert_data(data):
     """
     conn = create_connection()
 
-    sql = f"""INSERT INTO table_data (temperatura, created_date)
-              VALUES(?, ?)
+    sql = f"""INSERT INTO table_data (temperatura, ph, created_date)
+              VALUES(?, ?, ?)
     """
     try:
         cur = conn.cursor()
