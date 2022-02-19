@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 *.db 
 *DocumentacionFlaskMysql
-
+envflask
+.gitignore
 # C extensions
 *.so
 

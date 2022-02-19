@@ -1,3 +1,4 @@
+import re
 from flask import Flask
 from flask import request, jsonify, Blueprint
 from datetime import datetime
@@ -39,5 +40,21 @@ def get_tasks():
         return jsonify({"message": "Internal Error"})
     else:
         return jsonify({"message": {}}) 
+
+@app.route('/vector', methods=['GET'])
+def get_vector():
+    """
+    Ruta para mostrat un vector de 50 datos
+    """
+    data = datos.select_vector_date()
+    if data:
+        return jsonify({"data" : data})
+    elif data == False:
+        return jsonify({"message": "Internal Error"})
+    else:
+        return jsonify({"message": {}}) 
+
+
 if __name__ == ('__main__'):
     app.run(debug=False)
+

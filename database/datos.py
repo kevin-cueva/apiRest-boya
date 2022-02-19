@@ -72,3 +72,27 @@ def select_all_data():
         if conn:
             cur.close()
             conn.close()
+
+def select_vector_date():
+    """
+    Funcion que envia los ultimos 50 datos
+    """
+    conn = create_connection() #Esta funcion crea la conexion
+    sql = "SELECT * FROM table_data ORDER BY id DESC LIMIT 50"
+
+    try:
+        conn.row_factory = sqlite3.Row #conviertelo en una lista de objetos
+        cur = conn.cursor()
+        cur.execute(sql)
+        data_rows = cur.fetchall()
+        data = [dict(row) for row in data_rows] #Cada lista combiertela en diccionario
+        return data
+    except Error as e:
+        print(f"Error at select_all_tasks {str(e)}")
+    
+    finally:
+        if conn:
+            cur.close()
+            conn.close()
+
+
