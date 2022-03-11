@@ -18,8 +18,9 @@ def add_data():
     temperatura = request.json['temperatura']
     ph = request.json['ph']
     created_date = datetime.now().strftime("%x") #5/22/2021
-
-    data = (temperatura, ph, created_date) #para guardar
+    
+    created_time = datetime.now().strftime("%H/%M/%S") #Tiempo /hour/min/seg
+    data = (temperatura, ph, created_date, created_time) #para guardar
     data_id = datos.insert_data(data) #devuelve el id
 
     if data_id:

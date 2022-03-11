@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS table_data( -- crea la table_data tasks si no existe
     id INTEGER PRIMARY KEY, --llave primaria 
     temperatura TEXT NO NULL, --texto
     ph TEXT NO NULL, -- float
-    created_date TEXT NO NULL -- la fecha de creacion
+    created_date TEXT NO NULL, -- la fecha de creacion
+    created_time TEXT NO NULL -- el tiempo de los datos
 )
